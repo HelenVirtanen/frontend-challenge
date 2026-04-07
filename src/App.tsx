@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { fetchCats } from "./api/catApi";
 import type { CatImage } from "./api/catApi";
 import Header from "./components/Header/Header";
@@ -8,12 +8,12 @@ function App() {
   const [activeTab, setActiveTab] = useState<"all" | "favorites">("all");
   const [cats, setCats] = useState<CatImage[]>([]);
 
-  const loadCats = useCallback(async () => {
+  useEffect(() => {
+    const loadCats = async () => {
     const newCats = await fetchCats();
     setCats((prev) => [...prev, ...newCats]);
-  }, []);
+    };
 
-  useEffect(() => {
     loadCats();
     console.log("All cats", cats);
   }, []);
