@@ -1,0 +1,56 @@
+.card {
+  position: relative;
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  background-color: #fff;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0 9px 18px, rgba(0, 0, 0, 0.24) 0 6px 5px;
+  transform: scale(1.14);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.3s;
+  aspect-ratio: 1 / 1;
+}
+
+.imageHidden {
+  opacity: 0;
+}
+
+.imageVisible {
+  opacity: 1;
+}
+
+.skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 48px;
+  background-color: #e0e0e0;
+  aspect-ratio: 1 / 1;
+}
+
+.favoriteButton {
+  position: absolute;
+  right: 15px;
+  bottom: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  background-color: transparent;
+  transition: transform 0.2s;
+}
+
