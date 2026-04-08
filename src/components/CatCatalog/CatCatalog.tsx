@@ -91,9 +91,9 @@ const CatCatalog: React.FC<CatCatalogProps> = ({
       )}
 
       {isLoadingMore && (
-        <div className={styles.loadingMessage}>
-          <p>...загружаются еще котики...</p>
-        </div>
+        <p className={styles.loadingMessage}>
+          ...загружаем еще котиков...
+        </p>
       )}
     </>
   );
