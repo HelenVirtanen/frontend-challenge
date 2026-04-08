@@ -10,4 +10,5 @@ export default defineConfig({
       },
       include: '**/*.svg',
     })],
+  base: '/frontend-challenge/'
 });
