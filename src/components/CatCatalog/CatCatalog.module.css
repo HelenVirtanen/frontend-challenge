@@ -53,14 +53,17 @@
   align-items: center;
   justify-content: center;
   font-size: 64px;
-  animation: spin 1.5s linear infinite;
+  animation: wiggle 1s ease-in-out infinite;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+@keyframes wiggle {
+  0% {
+    transform: rotate(-35deg);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(-35deg);
   }
 }
