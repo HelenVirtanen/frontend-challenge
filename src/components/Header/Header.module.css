@@ -24,15 +24,21 @@
   border: none;
   padding: 23px 25px;
   color: var(--bg, #fff);
+  font-family: inherit;
   font-weight: 400;
   font-size: 14px;
   background: none;
   transition: all 0.2s;
-  letter-spacing: 3.5%;
+  letter-spacing: 0.25px;
 }
 
 .button:hover,
 .buttonActive {
-  color: rgb(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
   background-color: var(--accent-hover, #1e88e5); /* Primary 600 */
+}
+
+.button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
