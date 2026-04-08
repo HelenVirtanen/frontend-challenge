@@ -12,8 +12,8 @@
 .container {
   display: flex;
   height: 64px;
-  padding-right: 62px;
-  padding-left: 62px;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
 .button {
@@ -31,11 +31,8 @@
   letter-spacing: 3.5%;
 }
 
-.button:hover {
-  color: rgb(255, 255, 255, 0.7);
-  background-color: var(--accent-hover, #1e88e5); /* Primary 600 */
-}
-
+.button:hover,
 .buttonActive {
   color: rgb(255, 255, 255, 0.7);
+  background-color: var(--accent-hover, #1e88e5); /* Primary 600 */
 }
