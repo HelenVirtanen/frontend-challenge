@@ -76,7 +76,7 @@ const CatCatalog: React.FC<CatCatalogProps> = ({
     <>
       <div className={styles.grid}>
         {cats.map((cat) => (
-          <div key={cat.id}>
+          <div key={cat.id} className={styles.gridCard}>
             <CatCard
               cat={cat}
               isFavourite={isFavourite(cat.id)}
