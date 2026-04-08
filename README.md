@@ -2,6 +2,8 @@
 
 ## Проект "Кошачий пинтерест" 🐱
 
+[Демо на GitHub Pages](https://helenvirtanen.github.io/frontend-challenge/)
+
 Интерфейс для просмотра котиков с помощью API https://thecatapi.com  
 Дизайн - https://bit.ly/3utxaL2  
 
@@ -18,6 +20,27 @@
 - TypeScript
 - Vite
 
+## 🌳 Структура проекта 
+src/  
+├── api/          # API-запросы (fetchCats)  
+├── components/   # React-компоненты  
+├── hooks/        # Кастомные хуки (useFavourites)  
+├── pages/        # Страницы  
+└── assets/       # Иконки и стили  
+
+## 🖼️ Скриншоты
+### 🏠 Главная страница "Все котики"
+![Все котики](./screenshots/MainPage.PNG) 
+
+### ❤️ Страница "Любимые котики"
+![Любимые котики](./screenshots/FavouritesPage.PNG)
+
+### Мобильная версия
+| Все котики | Любимые котики |
+|---------|------------------|
+| ![Все котики](./screenshots/MainMobile.PNG) | ![Любимые котики](./screenshots/FavouriteMobile.PNG) |
+
+
 ## 🚀 Установка и запуск
 1. Клонируйте репозиторий:
 git clone https://github.com/HelenVirtanen/frontend-challenge
@@ -26,7 +49,12 @@ git clone https://github.com/HelenVirtanen/frontend-challenge
 npm i
 ```
 
-3. Запустите приложение:
+3. Получите API-ключ:
+- Зарегистрируйтесь на https://thecatapi.com 
+- Создайте файл .env в корне проекта
+- Добавьте в него переменную VITE_CAT_API_KEY=<ваш ключ без кавычек>
+
+4. Запустите приложение:
 ```
 npm run dev
 ```
