@@ -51,6 +51,8 @@
   align-items: center;
   font-size: 40px;
   background-color: transparent;
-  transition: transform 0.2s;
+  transition: opacity 0.2 ease, transform 0.2s ease;
+  opacity: 1;
+  z-index: 3;
 }
 

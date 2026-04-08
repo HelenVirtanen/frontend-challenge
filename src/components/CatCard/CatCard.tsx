@@ -16,9 +16,10 @@ const CatCard: React.FC<CatCardProps> = ({
   onToggleFavourite,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {!imageLoaded && (
         <div className={styles.skeleton}>
           <span>🐱</span>
@@ -30,7 +31,7 @@ const CatCard: React.FC<CatCardProps> = ({
         className={`${styles.image} ${imageLoaded ? styles.imageVisible : styles.imageHidden}`}
         onLoad={() => setImageLoaded(true)}
       />
-      <button
+      {(isHovered || isFavourite) && (<button
         className={styles.favouriteButton}
         aria-label={isFavourite ? "Удалить из избранного" : "В избранное"}
         onClick={(e) => {
@@ -40,6 +41,7 @@ const CatCard: React.FC<CatCardProps> = ({
       >
         {isFavourite ? <LikedIcon /> : <NotLikedIcon />}
       </button>
+      )}
     </div>
   );
 };
