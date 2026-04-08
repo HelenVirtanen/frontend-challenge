@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchCats, type CatImage } from '../api/catApi';
 import CatCatalog from '../components/CatCatalog/CatCatalog';
 
@@ -14,7 +14,8 @@ const MainPage: React.FC<MainPageProps> = ({ isFavourite, onToggleFavourite }) =
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  const loadInitialCats = useCallback(async () => {
+useEffect(() => {
+  const load = async () => {
     setIsLoading(true);
     const newCats = await fetchCats(0, 15);
     
@@ -25,9 +26,12 @@ const MainPage: React.FC<MainPageProps> = ({ isFavourite, onToggleFavourite }) =
     setCats(newCats);
     setPage(1);
     setIsLoading(false);
+  };
+
+    load();
   }, []);
 
-  const loadMoreCats = useCallback(async () => {
+  const loadMoreCats = async () => {
     if (isLoadingMore || !hasMore) return;
     
     console.log("Догружаем котиков, страница:", page);
@@ -42,11 +46,7 @@ const MainPage: React.FC<MainPageProps> = ({ isFavourite, onToggleFavourite }) =
     setCats(prev => [...prev, ...newCats]);
     setPage(prev => prev + 1);
     setIsLoadingMore(false);
-  }, [page, isLoadingMore, hasMore]);
-
-  useEffect(() => {
-    loadInitialCats();
-  }, []);
+  };
 
   return (
     <CatCatalog
