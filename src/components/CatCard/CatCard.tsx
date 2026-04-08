@@ -19,7 +19,11 @@ const CatCard: React.FC<CatCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className={styles.card} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div
+      className={styles.card}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {!imageLoaded && (
         <div className={styles.skeleton}>
           <span>🐱</span>
@@ -31,16 +35,17 @@ const CatCard: React.FC<CatCardProps> = ({
         className={`${styles.image} ${imageLoaded ? styles.imageVisible : styles.imageHidden}`}
         onLoad={() => setImageLoaded(true)}
       />
-      {(isHovered || isFavourite) && (<button
-        className={styles.favouriteButton}
-        aria-label={isFavourite ? "Удалить из избранного" : "В избранное"}
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggleFavourite(cat);
-        }}
-      >
-        {isFavourite ? <LikedIcon /> : <NotLikedIcon />}
-      </button>
+      {(isHovered || isFavourite) && (
+        <button
+          className={styles.favouriteButton}
+          aria-label={isFavourite ? "Удалить из избранного" : "В избранное"}
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFavourite(cat);
+          }}
+        >
+          {isFavourite ? <LikedIcon /> : <NotLikedIcon />}
+        </button>
       )}
     </div>
   );

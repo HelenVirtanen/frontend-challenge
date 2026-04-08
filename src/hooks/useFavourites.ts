@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import type { CatImage } from '../api/catApi';
+import { useState, useEffect } from "react";
+import type { CatImage } from "../api/catApi";
 
-const FAVOURITES_KEY = 'cat_favourites';
+const FAVOURITES_KEY = "cat_favourites";
 
 export const useFavourites = () => {
   const [favourites, setFavourites] = useState<CatImage[]>(() => {
@@ -14,17 +14,17 @@ export const useFavourites = () => {
   }, [favourites]);
 
   const addToFavourites = (cat: CatImage) => {
-    if (!favourites.some(fav => fav.id === cat.id)) {
+    if (!favourites.some((fav) => fav.id === cat.id)) {
       setFavourites([...favourites, cat]);
     }
   };
 
   const removeFromFavourites = (catId: string) => {
-    setFavourites(favourites.filter(cat => cat.id !== catId));
+    setFavourites(favourites.filter((cat) => cat.id !== catId));
   };
 
   const isFavourite = (catId: string): boolean => {
-    return favourites.some(cat => cat.id === catId);
+    return favourites.some((cat) => cat.id === catId);
   };
 
   const toggleFavourite = (cat: CatImage) => {

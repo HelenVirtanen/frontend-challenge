@@ -1,11 +1,10 @@
 :root {
   --text: #000;
   --bg: #fff;
-  --accent-bg: #2196F3;
-  --accent-hover: #1E88E5;
-  --shadow:
-    rgba(0, 0, 0, 0.24) 0 4px 4px;
-  --roboto: 'Roboto', system-ui, 'Segoe UI', sans-serif;
+  --accent-bg: #2196f3;
+  --accent-hover: #1e88e5;
+  --shadow: rgba(0, 0, 0, 0.24) 0 4px 4px;
+  --roboto: "Roboto", system-ui, "Segoe UI", sans-serif;
 
   font-size: 14px;
   font-family: var(--roboto);
@@ -27,10 +26,9 @@
   :root {
     --text: #fff;
     --bg: #000;
-    --accent-bg: #1976D2;
-    --accent-hover: #1E88E5;
-    --shadow:
-      rgba(0, 0, 0, 0.24) 0 4px 4px;
+    --accent-bg: #1976d2;
+    --accent-hover: #1e88e5;
+    --shadow: rgba(0, 0, 0, 0.24) 0 4px 4px;
   }
 }
 

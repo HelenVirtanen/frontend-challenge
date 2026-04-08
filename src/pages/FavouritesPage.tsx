@@ -1,6 +1,6 @@
-import React from 'react';
-import { type CatImage } from '../api/catApi';
-import CatGrid from '../components/CatCatalog/CatCatalog';
+import React from "react";
+import { type CatImage } from "../api/catApi";
+import CatGrid from "../components/CatCatalog/CatCatalog";
 
 interface FavouritesProps {
   favourites: CatImage[];
@@ -8,7 +8,11 @@ interface FavouritesProps {
   onToggleFavourite: (cat: CatImage) => void;
 }
 
-const FavouritesPage: React.FC<FavouritesProps> = ({ favourites, isFavourite, onToggleFavourite }) => {
+const FavouritesPage: React.FC<FavouritesProps> = ({
+  favourites,
+  isFavourite,
+  onToggleFavourite,
+}) => {
   return (
     <CatGrid
       cats={favourites}
