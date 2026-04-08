@@ -1,36 +1,30 @@
-import { useState, useEffect } from "react";
-import { fetchCats } from "./api/catApi";
-import type { CatImage } from "./api/catApi";
+import { useState } from "react";
 import Header from "./components/Header/Header";
-import CatCard from "./components/CatCard/CatCard";
+import MainPage from "./pages/MainPage";
+import FavouritesPage from "./pages/FavouritesPage";
+import { useFavourites } from "./hooks/useFavourites";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<"all" | "favorites">("all");
-  const [cats, setCats] = useState<CatImage[]>([]);
-
-  useEffect(() => {
-    const loadCats = async () => {
-    const newCats = await fetchCats();
-    setCats((prev) => [...prev, ...newCats]);
-    };
-
-    loadCats();
-    console.log("All cats", cats);
-  }, []);
+  const [activeTab, setActiveTab] = useState<"all" | "favourites">("all");
+  const { favourites, isFavourite, toggleFavourite } = useFavourites();
 
   return (
     <>
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
-
-      <section
-        style={{ padding: "50px 62px 48px", maxWidth: "1440px", width: "100%" }}
-      >
-        <ul style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
-          {cats?.map((cat) => (
-            <CatCard key={cat.id} cat={cat} isFavorite={false} onToggleFavorite={() => {}} />
-          ))}
-        </ul>
-      </section>
+      <main>
+        {activeTab === "all" ? (
+          <MainPage
+            isFavourite={isFavourite}
+            onToggleFavourite={toggleFavourite}
+          />
+        ) : (
+          <FavouritesPage
+            favourites={favourites}
+            isFavourite={isFavourite}
+            onToggleFavourite={toggleFavourite}
+          />
+        )}
+      </main>
     </>
   );
 }
