@@ -7,17 +7,21 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
+  const getButtonClass = (tab: "all" | "favourites") => {
+    return `${styles.button} ${activeTab === tab ? styles.buttonActive : ""}`;
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <button
-          className={`${styles.button} ${activeTab === "all" ? styles.buttonActive : ""}`}
+          className={getButtonClass("all")}
           onClick={() => onTabChange("all")}
         >
           Все котики
         </button>
         <button
-          className={`${styles.button} ${activeTab === "favourites" ? styles.buttonActive : ""}`}
+          className={getButtonClass("favourites")}
           onClick={() => onTabChange("favourites")}
         >
           Любимые котики
