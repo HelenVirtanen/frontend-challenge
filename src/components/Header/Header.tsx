@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
-  activeTab: "all" | "favorites";
-  onTabChange: (tab: "all" | "favorites") => void;
+  activeTab: "all" | "favourites";
+  onTabChange: (tab: "all" | "favourites") => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
@@ -17,8 +17,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
           Все котики
         </button>
         <button
-          className={`${styles.button} ${activeTab === "favorites" ? styles.buttonActive : ""}`}
-          onClick={() => onTabChange("favorites")}
+          className={`${styles.button} ${activeTab === "favourites" ? styles.buttonActive : ""}`}
+          onClick={() => onTabChange("favourites")}
         >
           Любимые котики
         </button>

@@ -6,14 +6,14 @@ import styles from "./CatCard.module.css";
 
 interface CatCardProps {
   cat: CatImage;
-  isFavorite: boolean;
-  onToggleFavorite: (cat: CatImage) => void;
+  isFavourite: boolean;
+  onToggleFavourite: (cat: CatImage) => void;
 }
 
 const CatCard: React.FC<CatCardProps> = ({
   cat,
-  isFavorite,
-  onToggleFavorite,
+  isFavourite,
+  onToggleFavourite,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -31,14 +31,14 @@ const CatCard: React.FC<CatCardProps> = ({
         onLoad={() => setImageLoaded(true)}
       />
       <button
-        className={styles.favoriteButton}
-        aria-label={isFavorite ? "Удалить из избранного" : "В избранное"}
+        className={styles.favouriteButton}
+        aria-label={isFavourite ? "Удалить из избранного" : "В избранное"}
         onClick={(e) => {
           e.stopPropagation();
-          onToggleFavorite(cat);
+          onToggleFavourite(cat);
         }}
       >
-        {isFavorite ? <LikedIcon /> : <NotLikedIcon />}
+        {isFavourite ? <LikedIcon /> : <NotLikedIcon />}
       </button>
     </div>
   );
