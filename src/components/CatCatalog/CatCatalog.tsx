@@ -56,7 +56,7 @@ const CatCatalog: React.FC<CatCatalogProps> = ({
     }
 
     return () => observerRef.current?.disconnect();
-  }, [handleObserver, cats]);
+  }, [handleObserver]);
 
   if (isLoading && cats.length === 0) {
     return (
